@@ -13,5 +13,16 @@
 // Run: node ex05.js
 
 const os = require("os");
+function logFreeMemory() {
+    const freeMemory = os.freemem();
+    const totalMemory = os.totalmem();
+    const freeMemoryPercentage = (freeMemory / totalMemory) * 100;
+    console.log(`Free Memory: ${freeMemoryPercentage.toFixed(2)}%`);
+}
 
-// write your code here
+const intervalId = setInterval(logFreeMemory, 2000);
+
+setTimeout(() => {
+    clearInterval(intervalId);
+    console.log("Memory logging complete.");
+}, 12000);
