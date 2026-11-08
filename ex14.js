@@ -1,20 +1,28 @@
-// Exercise 14: Countdown with Random Delay
-// Goal: countdown from 3 to 0 with a random delay between 500ms and 1500ms per number.
-// Required: setTimeout(callback, delay), Math.random()
-// - use recursive or nested callbacks with setTimeout (no loops)
-// - for each step compute a NEW delay:
-//     const delay = 500 + Math.random() * 1000;
+// Exercise 13: Show System Uptime
+// Goal: print how long the system has been running, in seconds.
+// Required: os.uptime() - returns the uptime in seconds.
+// It is a synchronous system call, but keep the flow callback-friendly
+// (e.g. a main function that takes a callback).
 //
 // Expected output:
-//   3
-//   (wait random time)
-//   2
-//   (wait random time)
-//   1
-//   (wait random time)
-//   0
-//   Done!
+//   System uptime: 52300 seconds
 //
-// Run: node ex14.js
+// Run: node ex13.js
 
-// write your code here
+
+function delay() { return (500 + Math.random() * 1000); }
+
+
+setTimeout(() => {
+    console.log("3");
+    setTimeout(() => {
+        console.log("2");
+        setTimeout(() => {
+            console.log("1");
+            setTimeout(() => {
+                console.log("0");
+                console.log("Done!");
+            }, delay());
+        }, delay());
+    }, delay());
+}, delay());
