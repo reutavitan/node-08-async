@@ -10,5 +10,6 @@
 // Run: node ex13.js
 
 const os = require("os");
+console.log(`System uptime: ${os.uptime()} seconds`);
 
 // write your code here
