@@ -12,5 +12,15 @@
 //   Time's up!
 //
 // Run: node ex03.js
+function countdown(n) {
+    if (n < 0) {
+        console.log("Time's up!");
+        return;
+    }
+    console.log(`${n}`);
+    setTimeout(() => {
+        countdown(n - 1);
+    }, 1000);
+}
 
-// write your code here
+countdown(5);
